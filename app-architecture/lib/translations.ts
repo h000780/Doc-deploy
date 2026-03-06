@@ -5,8 +5,8 @@ export const translations = {
       en: "Nata Application Module Architecture",
     },
     subtitle: {
-      zh: "应用模块架构",
-      en: "Apps Module Architecture",
+      zh: "应用模块架构设计文档",
+      en: "Apps Module Architecture Design",
     },
   },
   languageSwitcher: {
