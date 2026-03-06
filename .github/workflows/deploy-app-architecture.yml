@@ -1,0 +1,47 @@
+name: Deploy App Architecture
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "app-architecture/**"
+  workflow_dispatch:
+
+concurrency:
+  group: github-pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: app-architecture/pnpm-lock.yaml
+
+      - name: Install Dependencies
+        run: cd app-architecture && pnpm install --no-frozen-lockfile
+
+      - name: Build
+        run: cd app-architecture && pnpm run build
+
+      - name: Deploy App Architecture
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: app-architecture/out
+          target-folder: app-architecture
+          clean: false
