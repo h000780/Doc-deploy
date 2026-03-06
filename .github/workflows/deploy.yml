@@ -32,6 +32,7 @@ jobs:
           cd platform-architecture
           bun run build
           cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - name: Deploy Main Site
         uses: JamesIves/github-pages-deploy-action@v4
