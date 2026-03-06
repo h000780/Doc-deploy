@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom architecture colors */
+    --control-plane: 217 91% 60%;
+    --control-plane-light: 217 91% 95%;
+    --control-plane-medium: 217 91% 85%;
+    
+    --data-plane: 172 66% 50%;
+    --data-plane-light: 172 66% 95%;
+    --data-plane-medium: 172 66% 85%;
+    
+    --broker: 262 83% 58%;
+    --broker-light: 262 83% 95%;
+    --broker-medium: 262 83% 85%;
+    
+    --storage: 25 95% 53%;
+    --storage-light: 25 95% 95%;
+    --storage-medium: 25 95% 85%;
+
+    --worker: 340 82% 52%;
+    --worker-light: 340 82% 95%;
+    
+    --routine: 45 93% 47%;
+    --routine-light: 45 93% 95%;
+    
+    --fts: 199 89% 48%;
+    --fts-light: 199 89% 95%;
+
+    --monitoring: 271 81% 56%;
+    --monitoring-light: 271 81% 95%;
+    
+    --api: 142 71% 45%;
+    --api-light: 142 71% 95%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Dark mode architecture colors */
+    --control-plane: 217 91% 50%;
+    --control-plane-light: 217 91% 15%;
+    --data-plane: 172 66% 40%;
+    --data-plane-light: 172 66% 15%;
+    --broker: 262 83% 48%;
+    --broker-light: 262 83% 15%;
+    --storage: 25 95% 43%;
+    --storage-light: 25 95% 15%;
+    --worker: 340 82% 42%;
+    --worker-light: 340 82% 15%;
+    --routine: 45 93% 37%;
+    --routine-light: 45 93% 15%;
+    --fts: 199 89% 38%;
+    --fts-light: 199 89% 15%;
+    
+    --monitoring: 271 81% 46%;
+    --monitoring-light: 271 81% 15%;
+    
+    --api: 142 71% 35%;
+    --api-light: 142 71% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Architecture component animations */
+.component-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.component-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px -2px hsl(var(--primary) / 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--control-plane)), hsl(var(--data-plane)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Service colors */
+.bg-worker { background-color: hsl(var(--worker)); }
+.bg-worker-light { background-color: hsl(var(--worker-light)); }
+.border-worker { border-color: hsl(var(--worker)); }
+.text-worker { color: hsl(var(--worker)); }
+
+.bg-routine { background-color: hsl(var(--routine)); }
+.bg-routine-light { background-color: hsl(var(--routine-light)); }
+.border-routine { border-color: hsl(var(--routine)); }
+.text-routine { color: hsl(var(--routine)); }
+
+.bg-fts { background-color: hsl(var(--fts)); }
+.bg-fts-light { background-color: hsl(var(--fts-light)); }
+.border-fts { border-color: hsl(var(--fts)); }
+.text-fts { color: hsl(var(--fts)); }
+
+.bg-control-plane { background-color: hsl(var(--control-plane)); }
+.bg-control-plane-light { background-color: hsl(var(--control-plane-light)); }
+.border-control-plane { border-color: hsl(var(--control-plane)); }
+.text-control-plane { color: hsl(var(--control-plane)); }
+
+.bg-data-plane { background-color: hsl(var(--data-plane)); }
+.bg-data-plane-light { background-color: hsl(var(--data-plane-light)); }
+.border-data-plane { border-color: hsl(var(--data-plane)); }
+.text-data-plane { color: hsl(var(--data-plane)); }
+
+.bg-broker { background-color: hsl(var(--broker)); }
+.bg-broker-light { background-color: hsl(var(--broker-light)); }
+.border-broker { border-color: hsl(var(--broker)); }
+.text-broker { color: hsl(var(--broker)); }
+
+.bg-storage { background-color: hsl(var(--storage)); }
+.bg-storage-light { background-color: hsl(var(--storage-light)); }
+.border-storage { border-color: hsl(var(--storage)); }
+.text-storage { color: hsl(var(--storage)); }
