@@ -30,8 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "pnpm"
-          cache-dependency-path: api-development-manual/pnpm-lock.yaml
 
       - name: Install Dependencies
         run: cd api-development-manual && pnpm install --no-frozen-lockfile

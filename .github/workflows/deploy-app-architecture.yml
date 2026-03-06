@@ -30,8 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "pnpm"
-          cache-dependency-path: app-architecture/pnpm-lock.yaml
 
       - name: Install Dependencies
         run: cd app-architecture && pnpm install --no-frozen-lockfile
