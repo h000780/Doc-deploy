@@ -4,11 +4,7 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "src/**"
-      - "public/**"
-      - "index.html"
-      - "vite.config.ts"
-      - "package.json"
+      - "platform-architecture/**"
   workflow_dispatch:
 
 concurrency:
@@ -29,17 +25,18 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
-        run: bun install
+        run: cd platform-architecture && bun install
 
       - name: Build
         run: |
+          cd platform-architecture
           bun run build
           cp dist/index.html dist/404.html
 
       - name: Deploy Main Site
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: platform-architecture/dist
           target-folder: .
           clean-exclude: |-
             api-dev-manual
