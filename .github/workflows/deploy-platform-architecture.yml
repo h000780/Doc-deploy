@@ -1,0 +1,50 @@
+name: Deploy Platform Architecture
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "platform-architecture/**"
+  workflow_dispatch:
+
+concurrency:
+  group: github-pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: cd platform-architecture && bun install
+
+      - name: Build
+        run: |
+          cd platform-architecture
+          bun run build
+          cp dist/index.html dist/404.html
+
+      - name: Deploy Platform Architecture
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: platform-architecture/dist
+          target-folder: .
+          clean-exclude: |-
+            api-dev-manual
+            app-architecture
+
+      - name: Ensure .nojekyll at Root
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: root-public
+          target-folder: .
+          clean: false
