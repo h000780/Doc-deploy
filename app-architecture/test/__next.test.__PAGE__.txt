@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[35417,["/Doc-deploy/app-architecture/_next/static/chunks/26ca110782d86623.js","/Doc-deploy/app-architecture/_next/static/chunks/81f0f13d25d49d65.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"buildId":"GJdd4lwpxXsYlYyU-sYyT","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen bg-background p-8","children":[["$","h1",null,{"className":"text-3xl font-bold","children":"Test Page"}],["$","p",null,{"className":"mt-4 text-muted-foreground","children":"If you can see this, basic rendering works."}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+4:null

@@ -1,0 +1,2 @@
+:HL["/Doc-deploy/app-architecture/_next/static/chunks/bec89f347c6b1670.css","style"]
+0:{"buildId":"GJdd4lwpxXsYlYyU-sYyT","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
